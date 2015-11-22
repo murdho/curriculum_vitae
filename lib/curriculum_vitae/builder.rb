@@ -5,42 +5,31 @@ module CurriculumVitae
     def build(&block)
       fail ArgumentError, 'block is required' unless block_given?
 
-      @structure = {}
-      @active = @structure
-
+      @result = {}
       instance_eval(&block)
-
-      @structure
+      @result
     end
 
-    def report(name, contents)
-      puts <<-RPT
-
-@structure: #{@structure.inspect}
-@active:    #{@active.inspect}
-name:       #{name.inspect}
-contents:   #{contents.inspect}
-
-      RPT
+    def item(stuff)
+      @result[:items] ||= []
+      @result[:items] << stuff
     end
 
-    def add_to_structure(name, contents)
-      #report(name, contents)
+    def add_to_result(name, contents)
       if contents.is_a?(Proc)
-        @active[name] ||= {}
-        @old_active = @active
-        @active = @active[name]
+        original_result = @result
+        @result = temp_result = {}
         contents.call
-        @active = @old_active
+        @result = original_result
+        @result[name] = temp_result
       else
-        @active[name] = contents
+        @result[name] = contents
       end
-      #require 'pry'; binding.pry
     end
 
     def method_missing(method, *args, &block)
-      contents = block_given? ? block : args.first
-      add_to_structure(method, contents)
+      data = block_given? ? block : args.first
+      add_to_result(method, data)
     end
   end
 end

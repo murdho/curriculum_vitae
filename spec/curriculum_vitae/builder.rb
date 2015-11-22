@@ -19,11 +19,19 @@ describe CurriculumVitae::Builder do
             end
             email 'hello@world.com'
           end
+          experience do
+            specific_experience do
+              even_more_specific do
+                item 'very specific #1'
+                item 'very specific #2'
+              end
+            end
+          end
         end
       end
 
       it 'builds hash from the block' do
-        expect(return_value).to eq({
+        expect(return_value).to eq(
           name: 'Hello World',
           contact: {
             phones: {
@@ -31,8 +39,18 @@ describe CurriculumVitae::Builder do
               work: '+234 567 890'
             },
             email: 'hello@world.com'
+          },
+          experience: {
+            specific_experience: {
+              even_more_specific: {
+                items: [
+                  'very specific #1',
+                  'very specific #2'
+                ]
+              }
+            }
           }
-        })
+        )
       end
     end
   end
