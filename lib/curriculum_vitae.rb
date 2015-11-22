@@ -1,5 +1,4 @@
-require "curriculum_vitae/version"
+%w(version builder).each { |r| require "curriculum_vitae/#{r}.rb" }
 
 module CurriculumVitae
-  # Your code goes here...
 end
