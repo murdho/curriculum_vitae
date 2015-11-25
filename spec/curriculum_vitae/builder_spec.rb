@@ -79,13 +79,7 @@ describe CurriculumVitae::Builder do
           item 'Haskell'
         end
 
-        expect(result).to eq(
-          items: [
-            'Ruby',
-            'Clojure',
-            'Haskell'
-          ]
-        )
+        expect(result).to eq(items: %w(Ruby Clojure Haskell))
       end
     end
   end
