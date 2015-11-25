@@ -1,17 +1,15 @@
-# [WIP] CurriculumVitae
+# Curriculum Vitae
 
 [![Build Status](https://travis-ci.org/murdho/curriculum_vitae.svg)](https://travis-ci.org/murdho/curriculum_vitae)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/curriculum_vitae`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+_So, how to describe it?_
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'curriculum_vitae'
+gem 'curriculum_vitae', github: 'murdho/curriculum_vitae'
 ```
 
 And then execute:
@@ -20,21 +18,65 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install curriculum_vitae
+    $ git clone git@github.com:murdho/curriculum_vitae.git
+    $ cd curriculum_vitae/
+    $ bundle exec rake install
 
 ## Usage
 
-TODO: Write usage instructions here
+### tl;dr
+
+```ruby
+# Pass a block with your CV structure:
+CurriculumVitae.build do
+
+  # Most important things first:
+  name        'Your Name'
+  nationality 'Estonian'
+
+  # Other important things, nested:
+  contact do
+    phones do
+      home '+123 456 789'
+      work '+234 567 890'
+    end
+    email 'you@yourdomain.com'
+  end
+
+  # ...
+
+  # All kinds of information you want to present...
+  whatever 'else'
+
+  # ...nested:
+  also do
+    supports do
+      deeply do
+        nested 'stuff'
+      end
+    end
+  end
+
+  # ...and listed:
+  with do
+    lists do
+      item 'one'
+      item 'two'
+      item 'three'
+    end
+  end
+end
+```
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bundle` to install dependencies. Then, run `rake` to run the tests and other code quality checkers. You can also run `bundle console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/curriculum_vitae.
+Bug reports and pull requests are welcome on GitHub at https://github.com/murdho/curriculum_vitae.
 
 
 ## License
