@@ -1,6 +1,8 @@
 # Curriculum Vitae
 
 [![Build Status](https://travis-ci.org/murdho/curriculum_vitae.svg)](https://travis-ci.org/murdho/curriculum_vitae)
+[![Code Climate](https://codeclimate.com/github/murdho/curriculum_vitae/badges/gpa.svg)](https://codeclimate.com/github/murdho/curriculum_vitae)
+[![Test Coverage](https://codeclimate.com/github/murdho/curriculum_vitae/badges/coverage.svg)](https://codeclimate.com/github/murdho/curriculum_vitae/coverage)
 
 _So, how to describe it?_
 
