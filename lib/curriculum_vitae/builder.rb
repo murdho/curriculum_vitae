@@ -1,6 +1,10 @@
 module CurriculumVitae
   class Builder
-    attr_reader :structure
+    attr_reader :result
+
+    def self.build(&block)
+      Builder.new.build(&block)
+    end
 
     def build(&block)
       fail ArgumentError, 'block is required' unless block_given?
