@@ -1,5 +1,5 @@
-require_relative 'curriculum_viate/version'
-require_relative 'curriculum_viate/builder'
+require_relative 'curriculum_vitae/version'
+require_relative 'curriculum_vitae/builder'
 
 module CurriculumVitae
 end
