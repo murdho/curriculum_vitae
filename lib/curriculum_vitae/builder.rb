@@ -14,26 +14,30 @@ module CurriculumVitae
       @result
     end
 
-    def item(stuff)
-      @result[:items] ||= []
-      @result[:items] << stuff
-    end
-
-    def add_to_result(name, contents)
-      if contents.is_a?(Proc)
-        original_result = @result
-        @result = temp_result = {}
-        contents.call
-        @result = original_result
-        @result[name] = temp_result
-      else
-        @result[name] = contents
-      end
-    end
+    private
 
     def method_missing(method, *args, &block)
       data = block_given? ? block : args.first
       add_to_result(method, data)
+    end
+
+    def add_to_result(name, contents)
+      @result[name] = begin
+        contents.is_a?(Proc) ? with_sub_result { contents.call } : contents
+      end
+    end
+
+    def with_sub_result
+      main_result = @result
+      @result = sub_result = {}
+      yield
+      @result = main_result
+      sub_result
+    end
+
+    def item(stuff)
+      @result[:items] ||= []
+      @result[:items] << stuff
     end
   end
 end
