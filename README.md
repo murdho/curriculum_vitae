@@ -4,7 +4,12 @@
 [![Code Climate](https://codeclimate.com/github/murdho/curriculum_vitae/badges/gpa.svg)](https://codeclimate.com/github/murdho/curriculum_vitae)
 [![Test Coverage](https://codeclimate.com/github/murdho/curriculum_vitae/badges/coverage.svg)](https://codeclimate.com/github/murdho/curriculum_vitae/coverage)
 
-_So, how to describe it?_
+This is a small library that helps you to create more personal-looking CV.
+It provides a simple way to write down your details, then it builds
+an internal structure which can be used for producing different output (JSON, PDF, HTML, ...).
+
+Currently, it only builds the structure, but (hopefully) soon it will start producing
+different outputs as well. Stay tuned! 📬
 
 ## Installation
 
