@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Murdho']
   spec.email         = ['murdho@murdho.com']
 
-  spec.summary       = 'Simple DSL for creating CV}'
+  spec.summary       = 'Simple DSL for creating CV'
   spec.description   = ''
   spec.homepage      = 'https://github.com/murdho/curriculum_vitae'
   spec.license       = 'MIT'
