@@ -6,14 +6,14 @@ describe CurriculumVitae do
   end
 
   context '.build' do
-    it 'passes block to `Builder.build`' do
-      expect(CurriculumVitae::Builder).to receive(:build).and_call_original
+    let(:blokk) { -> { infinite 'joy' } }
 
-      result = subject.build do
-        code 'Red'
+    it 'passes block to `Builder.build`' do
+      expect(CurriculumVitae::Builder).to receive(:build) do |_, &block|
+        expect(blokk).to be(block)
       end
 
-      expect(result).to eq(code: 'Red')
+      subject.build(&blokk)
     end
   end
 end
